@@ -1,0 +1,70 @@
+/*
+Variables de base du projet
+ */
+
+$breakpoints: (
+	phone 	: 600px,
+	small 	: 800px,
+  	medium 	: 1200px
+);
+
+$p-font-sizes: (
+  null  : (1.11vw, 1.4),
+  medium : (1.11vw, 1.4),
+  small: (1.11vw, 1.4),
+  phone : (1.11vw, 1.4),
+);
+
+$h1-font-sizes: (
+	null  : (40px, 1.4),
+	medium : (40px, 1.4),
+	small: (40px, 1.4),
+  	phone : (40px, 1.4), 
+);
+
+$h2-font-sizes: (
+  null  : (2.78vw, 1.4),
+  medium : (2.78vw, 1.4),
+  small: (2.78vw, 1.4),
+  phone : (2.78vw, 1.4),
+);
+
+$h3-font-sizes: (
+  null  : (24px, 1.4),
+  medium : (24px, 1.4),
+  small: (24px, 1.4),
+  phone : (24px, 1.4),
+);
+
+$h4-font-sizes: (
+  null  : (24px, 1.4),
+  medium : (24px, 1.4),
+  small: (24px, 1.4),
+  phone : (24px, 1.4),
+);
+
+$h5-font-sizes: (
+  null  : (24px, 1.4),
+  medium : (24px, 1.4),
+  small: (24px, 1.4),
+  phone : (24px, 1.4),
+);
+
+$content-font		: 'Open Sans', sans-serif;
+$brand-font  : 'Reporter-Two', sans-serif; 
+
+$brand-color	: #fd4b43;
+$second-color	: #605889;
+$white        : #fefefe;
+
+$text-color 	: #636466;
+$h1-color 		: #636466;
+$h2-color 		: #636466;
+$h3-color     : #636466;
+$h4-color     : #636466;
+$h5-color 		: #636466;
+
+$link-color 	: #fd4b43;
+$hover-color 	: #fd4b43;
+
+$body-color   : $white;

@@ -1,0 +1,227 @@
+#section-2 { 
+	left: 140%;
+}
+
+.section-2 {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+.raisons {
+	float: left;
+	width: 50vw;
+	height: 100%;
+	background-color: $brand-color;
+	position: relative;
+
+	&__content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 80%;
+	}
+
+	h2 {
+		text-align: center;
+		color: $white;
+	}
+
+	&__encart {
+		background-image: url('img/bg-raisons.png');
+		background-size: 100% 100%;
+		padding: 1.5vw 5% 0.5vw ;
+		position: relative;
+
+		p {
+			$encart-font-sizes: (
+			  null  : (1.39vw, 1.4),
+			  medium : (1.39vw, 1.4),
+			  small: (1.39vw, 1.4),
+			  phone : (1.39vw, 1.4),
+			);
+			@include font-size($encart-font-sizes);
+			text-align: center;
+			color: $brand-color;
+			margin-top: 0;
+			margin-bottom: 2em;
+		}
+	}
+
+	&__list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+
+	&__raison {
+		float: left;
+		width: 43%;
+		height: 4.8vw;
+		margin-bottom: 2vw;
+		
+		&--pair {
+			border-right: 0.14vw solid $brand-color;
+			margin-right: 6%;
+			padding-right: 7%;
+		}
+
+		&__picto {
+			float: left;
+			width: 35%;
+			height: 2.78vw;
+			text-align: center;
+			margin-right: 5%;
+			img {
+				height: 100%;
+				width: auto;
+			}
+		}
+
+		&__text {
+			float: left; 
+			width: 60%;
+			font-weight: 600;
+			color: $brand-color;
+			$encart-b-font-sizes: (
+			  null  : (0.83vw, 1.4),
+			  medium : (0.83vw, 1.4),
+			  small: (0.83vw, 1.4),
+			  phone : (0.83vw, 1.4),
+			);
+			@include font-size($encart-b-font-sizes);
+			text-transform: uppercase;
+		}
+	}
+}
+
+.bouger {
+	float: right;
+	width: 50vw;
+	height: 100%;
+
+	float: left;
+	width: 50vw;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+
+	&__content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 80%;
+	}
+
+	h2 {
+		text-align: center;
+		color: $second-color;
+	}
+
+	&__encart {
+		position: relative;
+		padding: 1.5vw 5% 0.5vw ;
+		
+		&:before {
+			content: ' ';
+			position: absolute;
+			z-index:-1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: url('img/bg-raisons.png');
+			background-size: 100% 100%;
+			opacity: 0.8;
+		}
+
+		p {
+			color: $second-color;
+			text-align: center;
+			width: 65%;
+			margin: 0 auto 1em;
+		}
+
+		&__images {
+			width: 70%;
+			margin: 2vw auto;
+			overflow: hidden;
+		}
+
+		&__image {
+			display: block;
+			float: left;
+			margin: 0 3%;
+			width: 27.333333%
+		}
+	}
+
+	&__btn {
+		position: relative;
+		text-decoration: none;
+		display: block;
+		padding: 0.7em;
+		width: 60%;
+		margin: 2em auto;
+		text-align: center;
+		border:  0.14vw solid $second-color;
+		font-weight: 700;
+		color: $second-color;
+
+		&:before {
+			content: ' ';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 0; 
+			background-color: $second-color;
+			transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+		}
+
+		&:hover {
+			color: $white;
+			&:before {
+				width: 100%;
+			}
+		}
+
+		span {
+			position: relative;
+			z-index: 999;
+		}
+	}
+
+	&__background {
+		position: absolute;
+		top: 0;
+		left: -10%;
+		width: 110%;
+		height: 100%;
+		overflow: hidden;
+		background-size:cover;
+	}
+
+	&__cloud1 {
+		position: absolute;
+		top: 0;
+		left: -25%;
+		background-image: url('img/clouds1.png');
+		background-size: contain;
+		width: 45%;
+		height: 100%;
+	}
+
+	&__cloud2 {
+		position: absolute;
+		top: 0;
+		left: 45%;
+		background-image: url('img/clouds-2.png');
+		background-size: contain;
+		width: 45%;
+		height: 100%;
+	}
+}

@@ -1,0 +1,211 @@
+#section-1 {
+	width: 140vw;
+	left: 0%;
+	background-size: cover;
+}
+
+.section-1 {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+
+	&__background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 140vw;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	&__left {
+		float: left;
+		width:50vw;
+		position: relative;
+		height: 100%;
+
+		&__content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 23.61vw;
+
+			&__title {
+				display: block;
+				margin-bottom: 2.08vw;
+				width: 100%;
+				height: auto;
+			}
+
+			&__encart {
+				background-color: $brand-color;
+				padding: 0.69vw;
+				margin: 0 auto;
+				width: 85%;
+
+				p {
+					margin: 0;
+					text-align: center;
+					text-transform: uppercase;
+					color: $white;
+
+					strong {
+						$encart-b-font-sizes: (
+						  null  : (1.39vw, 1.4),
+						  medium : (1.39vw, 1.4),
+						  small: (1.39vw, 1.4),
+						  phone : (1.39vw, 1.4),
+						);
+						font-weight: 800;
+						@include font-size($encart-b-font-sizes);
+					}
+				}
+			}
+
+			&__btn {
+				display: block;
+				position: relative;
+				width: 55%;
+				padding-right: 8%;
+				margin: 6vw auto 0.5vw;
+				background-image: url(img/arrow.png);
+				background-size: contain;
+				background-position: 96%;
+				background-repeat: no-repeat;
+
+				text-transform: uppercase;
+				text-decoration: none;
+				$btn-font-sizes: (
+				  null  : (1.39vw, 1.4),
+				  medium : (1.39vw, 1.4),
+				  small: (1.39vw, 1.4),
+				  phone : (1.39vw, 1.4),
+				);
+				font-weight: 700;
+				@include font-size($btn-font-sizes);
+				text-align: center;
+				
+				transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+				@include animation('bg-bounce 6s infinite');
+				
+				&:before {
+					content: ' ';
+					position: absolute;
+					bottom: -0.2em;
+					left: 6%;
+					height: 0.14vw;
+					width: 0%;
+					background-color: $brand-color;
+					transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+				}
+
+				&:hover {
+					&:before {
+						width: 74%;
+					}
+				}
+			}
+
+			&__help {
+				color: $brand-color;
+				margin-bottom: 4vw;
+			    width: 150%;
+			    margin-left: -25%;
+			    text-align: center;
+			    font-weight: 700;
+				opacity: 1;
+				visibility: visible;
+				transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+			    &.hidden {
+			    	opacity:0;
+			    	visibility: hidden;
+			    }
+			}
+		}
+	}
+
+	&__right {
+		float: right;
+		width: 45vw;
+		position: relative;
+		height: 100%;
+		//margin-right: 5vw;
+
+		&__content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 18vw;
+
+			&__text {
+				text-align: center;
+			}
+
+			&__btn {
+				position: relative;
+				text-decoration: none;
+				display: block;
+				padding: 5% 2%;
+				width: 85%;
+				margin: 25px auto 0;
+				text-align: center;
+				border:  0.14vw solid $brand-color;
+				font-weight: 700;
+				
+				&:before {
+					content: ' ';
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 0; 
+					background-color: $brand-color;
+					transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+				}
+
+				&:hover {
+					color: $white;
+					&:before {
+						width: 100%;
+					}
+				}
+
+				span {
+					position: relative;
+					z-index: 999;
+				}
+			}
+		}
+	}
+
+	&__mentions {
+		position: absolute;
+		bottom: 1vw;
+		left: 25vw;
+		transform: translateX(-50%);
+		$mentions-font-sizes: (
+		  null  : (0.83vw, 1.4),
+		  medium : (0.83vw, 1.4),
+		  small: (0.83vw, 1.4),
+		  phone : (0.83vw, 1.4),
+		);
+		@include font-size($mentions-font-sizes);
+		color: $text-color;
+	}
+
+	
+}
+
+@include keyframes(bg-bounce) {
+  60%   { background-position: 96%; }
+  65% 	{ background-position: 100%; }
+  70% 	{ background-position: 96%; }
+  75% 	{ background-position: 100%; }
+  80% 	{ background-position: 96%; }
+}

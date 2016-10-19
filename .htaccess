@@ -1,0 +1,43 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+
+  # Attempt to load files from production if
+  # they're not in our local version
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule wp-content/uploads/(.*) \
+    http://www.semaine-societariat.fr/wp-content/uploads/$1 [NC,L]
+</IfModule>
+
+php_value upload_max_filesize 250M
+
+php_value post_max_size 250M
+
+php_value max_execution_time 300
+
+php_value max_input_time 300
+
+<IfModule deflate_module>
+	<IfModule filter_module>
+		AddOutputFilterByType DEFLATE text/plain text/html
+		AddOutputFilterByType DEFLATE text/xml application/xml application/xhtml+xml application/xml-dtd
+		AddOutputFilterByType DEFLATE application/rdf+xml application/rss+xml application/atom+xml image/svg+xml
+		AddOutputFilterByType DEFLATE text/css text/javascript application/javascript application/x-javascript
+		AddOutputFilterByType DEFLATE font/otf font/opentype application/font-otf application/x-font-otf
+		AddOutputFilterByType DEFLATE font/ttf font/truetype application/font-ttf application/x-font-ttf
+	</IfModule>
+</IfModule>
+
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+

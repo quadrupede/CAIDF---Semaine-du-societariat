@@ -1,0 +1,402 @@
+#section-4 {
+	left: 350%;
+	background-color: $white;
+} 
+
+.jeu {
+	position: absolute;
+	//transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+	width: 100%;
+	height: 100%;
+	background-color: $white;
+	
+	&:before {
+		z-index: 99;
+		content: ' ';
+		position: absolute;
+		top: 60%;
+		left:50%;
+		transform: translate(-50%, -50%);
+		width: 10vw;
+		height: 10vw;
+		background-image: url(img/picto-jeu-1.png);
+		background-size: contain;
+
+	}
+
+	&--current {
+		top: 0;
+		left: 0;
+		opacity: 1;
+		visibility: visible;
+	}
+	
+	&--after,
+	&--before {
+		top: 0;
+		left: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	&--start,
+	&--end {
+		&:before {
+			content: none;
+		}
+	}
+
+	&--end {
+		background-color: $brand-color;
+		
+		&__content {
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			transform: translateY(-50%);
+		}
+		&__title {
+			padding-top: 4vw;
+			color: $white;
+			font-family: $brand-font;
+			text-align: center;
+			$end-title-font-sizes: (
+			  null  : (10vw, 1),
+			  medium : (10vw, 1),
+			  small: (10vw, 1),
+			  phone : (10vw, 1),
+			);
+			@include font-size($end-title-font-sizes);
+		}
+
+		&__subtitle {
+			p {
+				color: $white;
+				font-weight: bold;
+				text-align: center;
+				$end-subtitle-font-sizes: (
+				  null  : (2vw, 1.4),
+				  medium : (2vw, 1.4),
+				  small: (2vw, 1.4),
+				  phone : (2vw, 1.4),
+				);
+				@include font-size($end-subtitle-font-sizes);
+			}
+		}
+
+		&__encart {
+			margin: 0 auto;
+			width: 40%;
+			padding: 2vw 5%  ;
+			background-image: url('img/bg-raisons.png');
+			background-size: 100% 100%;
+		}
+
+		&__plus {
+			background-image: url(img/btn-videos.png);
+			background-size: contain;
+			width: 100%;
+			background-position: center;
+			height: 3vw;
+		}
+
+		&__text {
+			p {
+				color: $brand-color;
+				text-align: center;
+				margin-bottom: 0;
+			}
+		}
+
+		&__btn {
+			position: relative;
+			display: block;
+			text-align: center;
+			width: 25%;
+			margin: 0 auto;
+			text-decoration: none;
+			font-weight: bold;
+
+			&:before {
+				content: ' '; 
+				position: absolute;
+				bottom: -0.2em;
+				right: 0;
+				height: 0.14vw;
+				width: 21%;
+				background-color: $brand-color;
+				transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+			} 
+
+			&:hover {
+				&:before {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	&__top {
+		height: 60%;
+		width: 100%;
+		position: relative;
+
+		&--start {
+			background-color: $brand-color;
+			background-image: url(img/bg-jeu-intro.png);
+			background-size: auto 70%;
+			background-position: 0% center;
+			
+			
+
+			&__squares {
+				position: absolute;
+				width: 15vw;
+				height: 15vw;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			&__square-1 {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background-image: url(img/picto-jeu-intro-1.png);
+				background-size: contain;
+				transform-origin: 80% bottom;
+				transform: rotate(-13deg);
+				transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+
+				&--rotate {
+					transform: rotate(0deg);
+				}
+			}
+
+			&__square-2 {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background-image: url(img/picto-jeu-intro-2.png);
+				background-size: contain;
+
+			}
+		}
+
+		&__left {
+			width: 50%;
+			height: 100%;
+			float: left;
+			background-size: cover;
+			background-position: center;
+		}
+
+		&__right {
+			width: 50%;
+			height: 100%;
+			float: left;
+			background-size: cover;
+			background-position: center;
+		}
+	}
+
+	&__bottom {
+		height: 40%;
+		width: 100%;
+		position: relative;
+		overflow: hidden; 
+
+		&__content {
+			position:absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		
+		&__letters {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			overflow: hidden;
+
+			&__wrapper {
+				position: absolute;
+				top: 45%;
+				margin-left: -100vw;
+				width: 300vw;
+			}
+		}
+
+		&__letter {
+			position: relative;
+			float: left;
+			height: 3.5vw;
+			width: 4vw;
+
+			&:before {
+				content: ' ';
+				position: absolute;
+				bottom: 0;
+				left: 15%;
+				width: 70%;
+				height: 0.4vw;
+				background-color: $brand-color;
+			}
+
+			&--space {
+				width: 2vw;
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			input {
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				font-weight: bold;
+				color: $brand-color;
+				text-transform: uppercase;
+				$input-font-sizes: (
+				  null  : (3vw, 0),
+				  medium : (3vw, 0),
+				  small: (3vw, 0),
+				  phone : (3vw, 0),
+				);
+				@include font-size($input-font-sizes);
+				-webkit-appearance:none;
+				outline: none;
+			}
+		}
+
+		&__help {
+			position: absolute;
+			display: block;
+			bottom: 1em;
+			width: 100%;
+			text-align: center;
+			font-weight: bold;
+			text-transform: uppercase;
+			$input-font-sizes: (
+			  null  : (0.83vw, 0),
+			  medium : (0.83vw, 0),
+			  small: (0.83vw, 0),
+			  phone : (0.83vw, 0),
+			);
+			@include font-size($input-font-sizes);
+
+			color: $brand-color;
+			transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+			opacity: 1;
+			visibility: visible;
+			&.hidden {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+
+		&__indice {
+			position: absolute;
+			display: block;
+			bottom: 3em;
+			width: 100%;
+			text-align: center;
+			font-weight: bold;
+			text-transform: uppercase;
+			color: $brand-color;
+			transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+			opacity: 1;
+			visibility: visible;
+			&.hidden {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+
+		&__btn--indice {
+			position: absolute;
+			display: block;
+			bottom: 3em;
+			left: 50%;
+			transform: translateX(-50%);
+			padding-bottom: 2.3em;
+			text-align: center;
+			text-decoration: none;
+			font-weight: bold;
+			text-transform: uppercase;
+			background-image: url(img/btn-indice.png);
+			background-size: 38%;
+			background-position: bottom center;
+			$btn-indice-font-sizes: (
+			  null  : (0.83vw, 1.4),
+			  medium : (0.83vw, 1.4),
+			  small: (0.83vw, 1.4),
+			  phone : (0.83vw, 1.4),
+			);
+			@include font-size($btn-indice-font-sizes);
+			opacity: 1;
+			transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+
+			&:hover {
+				background-size: 45%;
+			}
+
+			&.hidden {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+
+		&--start {
+			h2 {
+				color: $brand-color;
+				margin-bottom: 0;
+				text-align: center;
+			}
+
+			p {
+				text-align: center;
+				color: $brand-color;
+			}
+
+			&__btn {
+				position: relative;
+				text-decoration: none;
+				display: block;
+				padding: 5% 2%;
+				width: 60%;
+				margin: 25px auto 0;
+				text-align: center;
+				border:  0.14vw solid $brand-color;
+				font-weight: 700;
+				
+				&:before {
+					content: ' ';
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 0; 
+					background-color: $brand-color;
+					transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+				}
+
+				&:hover {
+					color: $white;
+					&:before {
+						width: 100%;
+					}
+				}
+
+				span {
+					position: relative;
+					z-index: 999;
+				}
+			}
+		}
+	}
+}
