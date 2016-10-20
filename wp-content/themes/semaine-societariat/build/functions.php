@@ -99,9 +99,7 @@ function add_welcome_widget(){ ?>
     
     <ul>
     <li><b>Pages</b> : Les differentes pages de votre site</li>
-    <li><b>Articles</b> : Les actualités de votre site</li>
-    <li><b>Options</b> : Divers contenus
-    <li><b>Contact</b> : Le formulaire de contact de votre site</li>
+    <li><b>Options</b> : Le jeu
     <li><b>SEO</b> : Les réglages SEO pour le referencement de votre site</li>
     </ul>
 <?php }
