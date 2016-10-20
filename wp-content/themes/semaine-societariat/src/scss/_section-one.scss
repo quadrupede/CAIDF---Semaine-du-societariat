@@ -12,3 +12,394 @@
 	}
 }
 
+.section-1 {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	
+	@include mappy-query(phone) {
+		height: auto;
+		position: relative;
+	}
+
+	&__background {
+		position: absolute;
+		top: 0;
+		left: 0; 
+		width: 140vw;
+		height: 100%;
+		
+		@include mappy-query(small) {
+			width: 100%;
+			overflow: hidden;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+			
+			@include mappy-query(small) {
+				margin-left: -30%;
+			}
+
+			.portrait & {
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
+
+	&__left {
+		float: left;
+		width:50vw;
+		position: relative;
+		height: 100%;
+		
+		@include mappy-query(small) {
+			width: 100vw;
+		}
+
+		@include mappy-query(phone) {
+			height: auto;
+			width: 100%;
+			float: none;
+		}
+		
+		&__content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 23.61vw;
+			
+			@include mappy-query(small) {
+				width: 80vw;
+			}
+
+			@include mappy-query(phone) {
+				top: 0;
+				left: 0;
+				height: auto;
+				position: relative;
+				width: 100%;
+				transform: none;
+			}
+
+			&__title {
+				display: block;
+				margin-bottom: 2.08vw;
+				width: 100%;
+				height: auto;
+				
+				@include mappy-query(phone) {
+					margin: 0 auto 5vh;
+					padding-top: 5vh;
+   					width: 80%;
+				}
+			}
+
+			&__encart {
+				background-color: $brand-color;
+				padding: 0.6em;
+				margin: 0 auto;
+				width: 85%;
+
+				p {
+					margin: 0;
+					text-align: center;
+					text-transform: uppercase;
+					color: $white;
+
+					strong {
+						$encart-b-font-sizes: (
+						  null  : (1.39vw, 1.4),
+						  medium : (1.39vw, 1.4),
+						  small: (3vw, 1.4),
+						  phone : (5vw, 1.4),
+						);
+						font-weight: 800;
+						@include font-size($encart-b-font-sizes);
+					}
+				}
+			}
+
+			&__btn {
+				display: block;
+				position: relative;
+				width: 55%;
+				padding-right: 8%;
+				margin: 6vw auto 0.5vw;
+				background-image: url(img/arrow.png);
+				background-size: contain;
+				background-position: 96%;
+				background-repeat: no-repeat;
+
+				text-transform: uppercase;
+				text-decoration: none;
+				$btn-font-sizes: (
+				  null  : (1.39vw, 1.4),
+				  medium : (1.39vw, 1.4),
+				  small: (3vw, 1.4),
+				  phone : (1.39vw, 1.4),
+				);
+				font-weight: 700;
+				@include font-size($btn-font-sizes);
+				text-align: center;
+				
+				transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+				@include animation('bg-bounce 6s infinite');
+				
+				@include mappy-query(phone) {
+					display: none;
+				}
+
+				&:before {
+					content: ' ';
+					position: absolute;
+					bottom: -0.2em;
+					left: 6%;
+					height: 0.14vw;
+					width: 0%;
+					background-color: $brand-color;
+					transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+				}
+
+				.no-touch &:hover {
+					&:before {
+						width: 74%;
+					}
+				}
+			}
+
+			&__help {
+				color: $brand-color;
+				margin-bottom: 4vw;
+			    width: 150%;
+			    margin-left: -25%;
+			    text-align: center;
+			    font-weight: 700;
+				opacity: 1;
+				visibility: visible;
+				transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+			    
+			    &.hidden {
+			    	opacity:0;
+			    	visibility: hidden;
+			    }
+			}
+		}
+	}
+
+	&__right {
+		float: right;
+		width: 45vw;
+		position: relative;
+		height: 100%;
+		
+		@include mappy-query(small) {
+			width: 100vw;
+		}
+
+		@include mappy-query(phone) {
+			height: auto;
+			width: 100%;
+			float: none;
+		}
+
+		&__content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 22vw;
+		    padding: 2vw;
+		    background: rgba(255,255,255,0.4);
+			
+			@include mappy-query(small) {
+				width: 80vw;
+				padding-bottom: 6vw;
+			}
+
+			@include mappy-query(phone) {
+				top: 0;
+				left: 0;
+				height: auto;
+				position: relative;
+				width: 100%;
+				transform: none;
+			}
+
+			&__text {
+				text-align: center;
+			}
+
+			&__btn {
+				position: relative;
+				text-decoration: none;
+				display: block;
+				padding: 0.6em 2%;
+				width: 85%;
+				margin: 25px auto 0;
+				text-align: center;
+				border:  0.14vw solid $brand-color;
+				font-weight: 700;
+				
+				@include mappy-query(small) {
+					width: 50%;
+				}
+
+				@include mappy-query(phone) {
+					width: 70%;
+				}
+
+				&:before {
+					content: ' ';
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 0; 
+					background-color: $brand-color;
+					transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+				}
+
+				.no-touch &:hover {
+					color: $white;
+					&:before {
+						width: 100%;
+					}  
+				}
+ 
+				span {
+					position: relative;
+					z-index: 999;
+				}
+			}
+		}
+	}
+
+	&__mentions {
+		position: absolute;
+		bottom: 1vw;
+		left: 25vw;
+		transform: translateX(-50%);
+		$mentions-font-sizes: (
+		  null  : (0.83vw, 1.4),
+		  medium : (0.83vw, 1.4),
+		  small: (0.83vw, 1.4),
+		  phone : (0.83vw, 1.4),
+		);
+		@include font-size($mentions-font-sizes);
+		color: $text-color;
+
+		@include mappy-query(small) {
+			display: none;
+		}
+	}
+
+	
+}
+
+.popin-agences {
+	position: fixed; 
+	z-index: 9999;
+	height: 80%;
+	width: 80%;
+	left: 10%;
+	top: 10%;
+	background-color: $white;
+	padding: 1em;
+	box-shadow: 2px 3px 16px rgba(0,0,0,0.4);
+	opacity: 1;
+	visibility: visible;
+
+	transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+	
+	&.hidden {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	&__background {
+		position: fixed;
+		z-index: 9990;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0.3);
+		cursor: pointer;
+		opacity: 1;
+		visibility: visible;
+
+		transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+		
+		&.hidden {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+	h2 {
+		color: $brand-color;
+		margin: 0 0 1em;
+		text-align: center;
+		$h2-popin-font-sizes: (
+		  null  : (1.6vw, 1.4),
+		  medium : (1.6vw, 1.4),
+		  small: (1.6vw, 1.4),
+		  phone : (1.6vw, 1.4),
+		);
+		@include font-size($h2-popin-font-sizes);
+	}
+
+	h4 { 
+		cursor: pointer;
+	}
+	
+	.agences {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		columns: 5;
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+	}
+	
+	.region {
+		margin-bottom: 0.5em;
+	}
+
+	.agence {
+		
+		margin-bottom: 0.2em;
+
+		&__adresse {
+			display: none;
+			padding-bottom: 0.5em;
+		}
+
+		p {
+			margin: 0;
+			$agence-font-sizes: (
+			  null  : (0.8vw, 1.4),
+			  medium : (0.8vw, 1.4),
+			  small: (0.8vw, 1.4),
+			  phone : (0.8vw, 1.4),
+			);
+			@include font-size($agence-font-sizes);
+		}
+	}
+}
+
+@include keyframes(bg-bounce) {
+  60%   { background-position: 96%; }
+  65% 	{ background-position: 100%; }
+  70% 	{ background-position: 96%; }
+  75% 	{ background-position: 100%; }
+  80% 	{ background-position: 96%; }
+}
