@@ -1,0 +1,12 @@
+#section-2 { 
+	left: 140%;
+	
+	@include mappy-query(small) {
+		left: 200%;
+	}
+
+	@include mappy-query(phone) {
+		left: 0;
+	}
+}
+

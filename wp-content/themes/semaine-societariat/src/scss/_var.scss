@@ -11,8 +11,8 @@ $breakpoints: (
 $p-font-sizes: (
   null  : (1.11vw, 1.4),
   medium : (1.11vw, 1.4),
-  small: (1.11vw, 1.4),
-  phone : (1.11vw, 1.4),
+  small: (2.5vw, 1.4),
+  phone : (4vw, 1.4),
 );
 
 $h1-font-sizes: (
@@ -25,22 +25,22 @@ $h1-font-sizes: (
 $h2-font-sizes: (
   null  : (2.78vw, 1.4),
   medium : (2.78vw, 1.4),
-  small: (2.78vw, 1.4),
-  phone : (2.78vw, 1.4),
+  small: (4.6vw, 1.4),
+  phone : (6vw, 1.4),
 );
 
 $h3-font-sizes: (
-  null  : (24px, 1.4),
-  medium : (24px, 1.4),
-  small: (24px, 1.4),
-  phone : (24px, 1.4),
+  null  : (0.9vw, 1.4),
+  medium : (0.9vw, 1.4),
+  small: (0.9vw, 1.4),
+  phone : (0.9vw, 1.4),
 );
 
 $h4-font-sizes: (
-  null  : (24px, 1.4),
-  medium : (24px, 1.4),
-  small: (24px, 1.4),
-  phone : (24px, 1.4),
+  null  : (0.8vw, 1.4),
+  medium : (0.8vw, 1.4),
+  small: (0.8vw, 1.4),
+  phone : (0.8vw, 1.4),
 );
 
 $h5-font-sizes: (
@@ -60,11 +60,11 @@ $white        : #fefefe;
 $text-color 	: #636466;
 $h1-color 		: #636466;
 $h2-color 		: #636466;
-$h3-color     : #636466;
+$h3-color     : #fd4b43;
 $h4-color     : #636466;
 $h5-color 		: #636466;
 
 $link-color 	: #fd4b43;
-$hover-color 	: #fd4b43;
+$hover-color 	: #fd4b43;  
 
 $body-color   : $white;

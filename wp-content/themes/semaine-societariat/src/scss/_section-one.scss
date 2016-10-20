@@ -1,0 +1,14 @@
+#section-1 {
+	width: 140vw;
+	left: 0%;
+	background-size: cover;
+	
+	@include mappy-query(small) {
+		width: 200vw;
+	}
+
+	@include mappy-query(phone) {
+		width: 100%;
+	}
+}
+

@@ -11,6 +11,12 @@ html {
 	box-sizing: border-box;
 	height: 100%;
 	overflow-y: hidden;
+
+	@include mappy-query(phone) {
+		height: auto;
+		overflow-y: visible;
+	}
+
 }
 *, *:before, *:after { 
   	box-sizing: inherit;
@@ -23,14 +29,14 @@ body {
 html,
 body {
 	text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale;
     font-smooth: always;
     font-family: $content-font;
 	@include font-size($p-font-sizes);
 	color: $text-color;
 	background-color: $body-color;
-}
+} 
 
 p {
 	font-family: $content-font;
@@ -54,15 +60,18 @@ h2 {
 }
 
 h3 {
-	font-family: $brand-font;
+	font-family: $content-font;
 	@include font-size($h3-font-sizes);
 	color: $h3-color;
+	margin: 0;
 }
 
 h4 {
-	font-family: $brand-font;
+	font-family: $content-font;
 	@include font-size($h4-font-sizes);
 	color: $h4-color;
+	margin: 0;
+	font-weight: normal;
 }
 
 h5 {
@@ -82,11 +91,15 @@ strong {
 
 .wrapper {
 	height: 100%;
-	width: 100vw;
-	overflow: hidden;
 }
 section {
 	height: 100%;
-	width:100vw;
+	width: 100%;
 	position: absolute;
+
+	@include mappy-query(phone) {
+		height: auto;
+		position: relative;
+	}
 }
+ 

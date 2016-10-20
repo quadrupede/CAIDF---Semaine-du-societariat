@@ -2,11 +2,11 @@ wip:
     scheme: ftp
     host: 79.99.164.173
     port: 21
-    user: user
-    pass: pass
+    user: semainesoc
+    pass: Iiraeng2
     check: false
     path:
-        remote: public_html/www_v4/
+        remote: public_html/www/
     exclude: ["dploy.yaml", ".gitignore", "README.md", "*.sql", "wp-content/themes/boilerplate/src/**/*", "wp-content/themes/boilerplate/bower.json",  "wp-content/themes/boilerplate/gulpfile.js",  "wp-content/themes/boilerplate/package.json"]
 
 prod:

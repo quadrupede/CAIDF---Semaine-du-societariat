@@ -16,13 +16,19 @@ var APP = {};
          */
         initPage: function() {
         	console.log("page loaded");
-            $('html').width($(window).width()*3);
-            $('body').width($(window).width()*3);
-            
-
             var md = new MobileDetect(window.navigator.userAgent);
 
-            if ((!md.tablet()) && (!md.phone())) {
+            if ((!md.phone()) && ($('.home').length)) {
+                $('html').width($(window).width()*3);
+                $('body').width($(window).width()*3);
+            }
+            console.log($(window).width() / $(window).height());
+            if ($(window).width() / $(window).height() < 1.5) {
+                $('body').addClass('portrait');
+            }
+
+            if ((!md.tablet()) && (!md.phone()) && ($('.home').length)) {
+                $('body').addClass('no-touch');
                 self.modules.animation.initAnimation();
                 $("body").mousewheel(function(evt, chg) {
                     this.scrollLeft -= (chg * 30); //need a value to speed up the change
@@ -30,6 +36,7 @@ var APP = {};
                     clearTimeout(self.timerHelp);
                     $('.section-1__left__content__help').addClass('hidden');
                 });
+                 self.timerHelp = setTimeout(self.displayHelp, 10000);
             }
 
             self.modules.jeu.initJeu();
@@ -38,11 +45,35 @@ var APP = {};
 
             $('.section-1__left__content__btn').click(self.scrollToLeft);
 
-           
-           // $('body').imagesLoaded(self.setVideos);
-            $('body').imagesLoaded(self.getUrlInfos);
+            self.initPopin();
             
-            self.timerHelp = setTimeout(self.displayHelp, 5000);
+
+            $('body').imagesLoaded(self.setVideos);
+            $('body').imagesLoaded(self.getUrlInfos);
+        },
+
+        initPopin: function() {
+            $('.agence__adresse').each(function() {
+                $(this).slideUp(0);
+            })
+            $('.agence h4').click(function() {
+                $('.agence__adresse').each(function() {
+                    $(this).slideUp(600);
+                })
+                $(this).parent().find('.agence__adresse').slideDown(600);
+            });
+            $('.section-1__right__content__btn').click(self.openPopin);
+            $('.popin-agences__background').click(self.closePopin);
+        },
+
+        openPopin: function() {
+            $('.popin-agences').removeClass('hidden');
+            $('.popin-agences__background').removeClass('hidden');
+        },
+
+        closePopin: function() {
+            $('.popin-agences').addClass('hidden');
+            $('.popin-agences__background').addClass('hidden');
         },
 
         getUrlInfos: function() {
@@ -68,10 +99,9 @@ var APP = {};
         scrollToLeft: function (e) {
             e.preventDefault();
             $('html,body').animate({
-                scrollLeft: $(window).width()/10*4+20
+                scrollLeft: $('#section-1').width() - $(window).width()+20
             }, 600, 'easeInOutCubic'); 
             clearTimeout(self.timerHelp);
-            $('.section-1__left__content__help').addClass('hidden');
         },
 
         displayHelp: function() {

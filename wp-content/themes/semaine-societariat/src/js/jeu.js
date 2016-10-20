@@ -15,15 +15,15 @@
 
         initScreen: function() {
             console.log('init screen');
-
+            var j = 0;
             $('.jeu--ecrans').each(function() {
+                j++;
                 var word = $(this).attr('data-word');
-                console.log(word+' '+word.length);
                 for (var i = 0; i < word.length; i++) {
                     if (word.charAt(i) != ' ' ) {
-                        $(this).find('.jeu__bottom__letters').append('<div class="jeu__bottom__letter"><input class="jeu__bottom__letter__input jeu__bottom__letter__input--'+i+'" type="text"  maxlength="1" data-num="'+i+'" data-letter="'+word.charAt(i)+'"></div>');
+                        $(this).find('.jeu__bottom__letters').append('<div class="jeu__bottom__letter"><input class="jeu__bottom__letter__input jeu--'+j+'__bottom__letter__input--'+i+'" type="text"  maxlength="1" data-num="'+i+'" data-letter="'+word.charAt(i)+'"></div>');
                     }else{
-                        $(this).find('.jeu__bottom__letters').append('<div class="jeu__bottom__letter jeu__bottom__letter--space" data-letter="'+word.charAt(i)+'"><input class="jeu__bottom__letter__input jeu__bottom__letter__input--'+i+' jeu__bottom__letter__input--space" type="text" value="'+word.charAt(i)+'" disabled="true" maxlength="1" data-num="'+i+'" data-letter="'+word.charAt(i)+'"></div>');
+                        $(this).find('.jeu__bottom__letters').append('<div class="jeu__bottom__letter jeu__bottom__letter--space" data-letter="'+word.charAt(i)+'"><input class="jeu__bottom__letter__input jeu--'+j+'__bottom__letter__input--'+i+' jeu__bottom__letter__input--space" type="text" value="'+word.charAt(i)+'" disabled="true" maxlength="1" data-num="'+i+'" data-letter="'+word.charAt(i)+'"></div>');
                     }
                 }
             });
@@ -34,7 +34,6 @@
         },
 
         showIndice: function() {
-            console.log('show indice');
             $(this).addClass('hidden');
             $(this).parent().find('.jeu__bottom__indice').removeClass('hidden');
         },
@@ -48,12 +47,11 @@
                     if ($(this).val() != '') {
                         var curInput = Number ($(this).attr('data-num'));
                         var nextInput = curInput+1;
-                        console.log('input = '+e.keyCode+' et next input = '+nextInput);
-                        while ($('.jeu__bottom__letter__input--'+nextInput).hasClass('jeu__bottom__letter__input--space')) {
+                        while ($('.jeu--'+self.currentScreen+'__bottom__letter__input--'+nextInput).hasClass('jeu__bottom__letter__input--space')) {
                             nextInput++;
                         }
-                        if ($('.jeu__bottom__letter__input--'+nextInput).length) {
-                            $('.jeu__bottom__letter__input--'+nextInput).focus();
+                        if ($('.jeu--'+self.currentScreen+'__bottom__letter__input--'+nextInput).length) {
+                            $('.jeu--'+self.currentScreen+'__bottom__letter__input--'+nextInput).focus();
                             $(this).unbind('keyup');
                             $(this).unbind('keydown');
                         }
@@ -65,10 +63,9 @@
         },
 
         checkAnswer: function(e) {
-            console.log(self.currentWord);
             var allGood = true;
             for (var i = 0; i < self.currentWord.length; i++) {
-                var letter = $('.jeu--'+self.currentScreen).find('.jeu__bottom__letter__input--'+i).val();
+                var letter = $('.jeu--'+self.currentScreen).find('.jeu--'+self.currentScreen+'__bottom__letter__input--'+i).val();
 
                 if (self.currentWord.charAt(i) !=  letter) {
                    allGood = false;
@@ -80,18 +77,16 @@
         },
 
         onBackSpace: function(e) {
-            console.log(e.keyCode);
             if (e.keyCode == 8) {
                 $(this).val('');
                 var curInput = Number ($(this).attr('data-num'));
                 if (curInput != 0) {
                     var prevInput = curInput-1;
-                    console.log('input = '+e.keyCode+' et prev input = '+prevInput);
-                    while ($('.jeu__bottom__letter__input--'+prevInput).hasClass('jeu__bottom__letter__input--space')) {
+                    while ($('.jeu--'+self.currentScreen+'__bottom__letter__input--'+prevInput).hasClass('jeu__bottom__letter__input--space')) {
                         prevInput--;
                     }
                 
-                    $('.jeu__bottom__letter__input--'+prevInput).focus();
+                    $('.jeu--'+self.currentScreen+'__bottom__letter__input--'+prevInput).focus();
                     $(this).unbind('keyup');
                     $(this).unbind('keydown');
                 }
@@ -99,7 +94,6 @@
         },
 
         onInputFocus: function() {
-            console.log('onInputFocus');
             $(this).val('');
             $(this).keyup(self.onInputChange);
             $(this).keydown(self.onBackSpace);
@@ -115,11 +109,12 @@
             $('.jeu--'+self.currentScreen).removeClass('jeu--after');
             $('.jeu--'+self.currentScreen).addClass('jeu--current');
             if (!$('.jeu--'+self.currentScreen).hasClass('jeu--end')) {
-                $('.jeu--'+self.currentScreen).find('.jeu__bottom__letter__input--0').focus();
+                console.log($('.jeu--'+self.currentScreen).find('.jeu--'+self.currentScreen+'__bottom__letter__input--0'));
+                $('.jeu--'+self.currentScreen).find('.jeu--'+self.currentScreen+'__bottom__letter__input--0').focus();
                 self.currentWord = $('.jeu--'+self.currentScreen).attr('data-word');
             }
 
-            self.timerHelp = setTimeout(self.displayHelp, 5000);
+            self.timerHelp = setTimeout(self.displayHelp, 10000);
         },
 
         displayHelp: function() {
