@@ -951,10 +951,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	top: 0;
 	background-color: $white;
 	overflow: hidden;
-	display: none;
+	//display: none;
 
 	@include mappy-query(small) {
-		display: none;
+		//display: none;
 		left: 400%;
 	}
  
@@ -983,7 +983,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		z-index: 99;
 		content: ' ';
 		position: absolute;
-		top: 60%;
+		top: 30%;
 		left:50%;
 		transform: translate(-50%, -50%);
 		width: 10vw;
@@ -991,8 +991,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		background-image: url(img/picto-jeu-1.png);
 		background-size: contain;
 
-		@include mappy-query(small) {
-			top: 30%;
+			
+		.no-touch & {
+			top: 60%;
 		}
 	}
 
@@ -1028,6 +1029,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			top: 50%;
 			width: 100%;
 			transform: translateY(-50%);
+
+			@include mappy-query(small) {
+				top: 0;
+				transform: none;
+			}
 		}
 		&__title {
 			padding-top: 4vw;
@@ -1119,13 +1125,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	}
 
 	&__top {
-		height: 60%;
+		height: 30%;
 		width: 100%;
 		position: relative;
 		
-		@include mappy-query(small) {
-			height: 30%;
+		.no-touch & {
+			height: 60%;
 		}
+		
 
 		&--start {
 			background-color: $brand-color;
@@ -1161,8 +1168,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 				background-image: url(img/picto-jeu-intro-1.png);
 				background-size: contain;
 				transform-origin: 80% bottom;
-				transform: rotate(-13deg);
+				transform: rotate(0deg);
 				transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+				
+				.touch & {
+					transform: rotate(-13deg);
+				}
 
 				&--rotate {
 					transform: rotate(0deg);
@@ -1187,6 +1198,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			float: left;
 			background-size: cover;
 			background-position: center;
+			background-color: red;
 		}
 
 		&__right {
@@ -1195,6 +1207,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			float: left;
 			background-size: cover;
 			background-position: center;
+			background-color: blue;
 		}
 	}
 
@@ -1223,6 +1236,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 				top: 45%;
 				margin-left: -100vw;
 				width: 300vw;
+
+				@include mappy-query(small) {
+					top: 20%;
+				}
 			}
 		}
 		
@@ -1287,6 +1304,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
 			opacity: 1;
 			visibility: visible;
+
+			@include mappy-query(small) {
+				bottom: auto;
+				top: 55%;
+			}
+
 			&.hidden {
 				opacity: 0;
 				visibility: hidden;
@@ -1305,6 +1328,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
 			opacity: 1;
 			visibility: visible;
+
+			@include mappy-query(small) {
+				bottom: auto;
+				top: 35%;
+			}
+
 			&.hidden {
 				opacity: 0;
 				visibility: hidden;
@@ -1334,6 +1363,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			@include font-size($btn-indice-font-sizes);
 			opacity: 1;
 			transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+			
+			@include mappy-query(small) {
+				bottom: auto;
+				top: 35%;
+			}
 
 			.no-touch &:hover {
 				background-size: 45%;

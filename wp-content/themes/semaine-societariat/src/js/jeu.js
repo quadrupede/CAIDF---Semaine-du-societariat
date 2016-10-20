@@ -45,6 +45,7 @@
                     break;
                 default :
                     if ($(this).val() != '') {
+                        $(this).val($(this).val().toLowerCase());
                         var curInput = Number ($(this).attr('data-num'));
                         var nextInput = curInput+1;
                         while ($('.jeu--'+self.currentScreen+'__bottom__letter__input--'+nextInput).hasClass('jeu__bottom__letter__input--space')) {
