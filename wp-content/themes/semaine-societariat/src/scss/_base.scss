@@ -57,6 +57,12 @@ h2 {
 	margin-top: 0;
 	margin-bottom: 2em;
 	font-weight: normal;
+
+	@include mappy-query(phone) {
+		margin: 0;
+		padding: 1em 0;
+	}
+
 }
 
 h3 {

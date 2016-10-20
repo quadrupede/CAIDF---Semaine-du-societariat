@@ -212,6 +212,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 				visibility: visible;
 				transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
 			    
+			    @include mappy-query(small) {
+					display:none;
+				}
+
 			    &.hidden {
 			    	opacity:0;
 			    	visibility: hidden;
@@ -257,6 +261,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 				position: relative;
 				width: 100%;
 				transform: none;
+				background: rgba(255,255,255,0.7);
 			}
 
 			&__text {
@@ -280,6 +285,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 				@include mappy-query(phone) {
 					width: 70%;
+					display:none;
 				}
 
 				&:before {
@@ -376,7 +382,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		$h2-popin-font-sizes: (
 		  null  : (1.6vw, 1.4),
 		  medium : (1.6vw, 1.4),
-		  small: (1.6vw, 1.4),
+		  small: (3vw, 1.4),
 		  phone : (1.6vw, 1.4),
 		);
 		@include font-size($h2-popin-font-sizes);
@@ -391,6 +397,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		padding: 0;
 		margin: 0;
 		columns: 5;
+		
+		@include mappy-query(small) {
+			columns: 4;
+		}
 
 		ul {
 			list-style: none;
@@ -417,7 +427,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			$agence-font-sizes: (
 			  null  : (0.8vw, 1.4),
 			  medium : (0.8vw, 1.4),
-			  small: (0.8vw, 1.4),
+			  small: (1.4vw, 1.4),
 			  phone : (0.8vw, 1.4),
 			);
 			@include font-size($agence-font-sizes);
@@ -487,6 +497,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			position: relative;
 			width: 100%;
 			transform: none;
+			padding-bottom: 2em;
 		}
 	}
 
@@ -506,12 +517,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			  null  : (1.39vw, 1.4),
 			  medium : (1.39vw, 1.4),
 			  small: (2.5vw, 1.4),
-			  phone : (1.39vw, 1.4),
+			  phone : (4vw, 1.4),
 			);
 			@include font-size($encart-font-sizes);
 			text-align: center;
 			color: $brand-color;
-			margin-top: 0;
+			margin-top: 1em;
 			margin-bottom: 2em;
 		}
 	}
@@ -532,6 +543,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		@include mappy-query(small) {
 			width: 95%;
 			height: 6vw;
+		}
+		
+		@include mappy-query(phone) {
+			height: 9vw
 		}
 
 		&--pair {
@@ -559,6 +574,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 				margin-right: 0;
 			}
 
+			@include mappy-query(phone) {
+				height: 6.2vw;
+				width: 30%;
+			}
+
 			img {
 				height: 100%;
 				width: auto;
@@ -574,7 +594,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			  null  : (0.83vw, 1.4),
 			  medium : (0.83vw, 1.4),
 			  small: (1.5vw, 1.4),
-			  phone : (0.83vw, 1.4),
+			  phone : (3vw, 1.4),
 			);
 			@include font-size($encart-b-font-sizes);
 			text-transform: uppercase;
@@ -621,6 +641,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			position: relative;
 			width: 100%;
 			transform: none;
+			padding-bottom: 2em;
 		}
 
 		
@@ -646,9 +667,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			background-image: url('img/bg-raisons.png');
 			background-size: 100% 100%;
 			opacity: 0.8;
+
+			@include mappy-query(phone) {
+				z-index: 0;
+			}
 		}
 
 		p {
+			position: relative;
 			color: $second-color;
 			text-align: center;
 			width: 65%;
@@ -660,6 +686,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		}
 
 		&__images {
+			position: relative;
 			width: 70%;
 			margin: 2vw auto;
 			overflow: hidden;
@@ -797,6 +824,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 			position: relative;
 			width: 100%;
 			transform: none;
+			padding-bottom: 2em;
 		}
 	}
 
@@ -857,6 +885,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		@include mappy-query(small) {
 			opacity: 1;
 			width: 27%;
+		}
+		
+		@include mappy-query(phone) {
+			width: 45%;
 		}
 
 		&:before {
